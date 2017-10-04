@@ -7,7 +7,7 @@
 
 int main(int argc, char** argv) {
 
-	Display display(640, 480, "Benny's shit tutorial");
+	Display display(640, 480, "Benny's  tutorial");
 	display.MakeCurrent();
 	int x, y, n;
 	unsigned char * imageData = stbi_load("brick.jpg", &x, &y, &n, 4);
