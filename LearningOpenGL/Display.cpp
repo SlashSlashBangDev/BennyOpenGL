@@ -8,7 +8,7 @@ Display::Display(int width, int height, const std::string& title)
 
 	m_window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
 
-	glewInit();
+	
 }
 
 void Display::MakeCurrent() {

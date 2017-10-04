@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Display.h"
+#include "mesh.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_FAILURE_USERMSG
@@ -9,6 +10,15 @@ int main(int argc, char** argv) {
 
 	Display display(640, 480, "Benny's  tutorial");
 	display.MakeCurrent();
+	glewInit();
+	Vertex vertices[] = {
+		Vertex(glm::vec3(-0.5 , -0.5, 0.0)),
+		Vertex(glm::vec3(0.0 , 0.5, 0.0)),
+		Vertex(glm::vec3(0.5 , -0.5, 0.0)),
+	};
+
+	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
+
 	int x, y, n;
 	unsigned char * imageData = stbi_load("brick.jpg", &x, &y, &n, 4);
 
@@ -20,7 +30,8 @@ int main(int argc, char** argv) {
 
 	while (!display.ShouldClose()) {
 		display.Clear(0.0f, 0.15f, 0.3f, 1.0f);
-		// go here -> https://www.youtube.com/watch?v=0jML5fMBDGg
+		
+		mesh.Draw();
 		display.Update();
 	}
 
