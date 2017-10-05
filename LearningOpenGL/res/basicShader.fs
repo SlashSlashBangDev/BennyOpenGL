@@ -1,8 +1,13 @@
-#version 400
+#version 120
 
-out vec4 FragColor;
+//out vec4 FragColor;
+uniform sampler2D diffuse;
+
+varying vec2 texCoord0;
+
 
 void main()
 {
-	FragColor = vec4(0.2, 0.5, 0.5, 1.0);
-};
+	gl_FragColor = texture2D(diffuse, texCoord0);
+	//gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+}
