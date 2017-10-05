@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Display.h"
-#include "mesh.h"
+#include "Mesh.h"
+#include "Shader.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_FAILURE_USERMSG
@@ -17,6 +18,8 @@ int main(int argc, char** argv) {
 		Vertex(glm::vec3(0.5 , -0.5, 0.0)),
 	};
 
+	Shader shader("./res/basicShader");
+
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
 
 	int x, y, n;
@@ -30,7 +33,8 @@ int main(int argc, char** argv) {
 
 	while (!display.ShouldClose()) {
 		display.Clear(0.0f, 0.15f, 0.3f, 1.0f);
-		
+
+		shader.Bind();
 		mesh.Draw();
 		display.Update();
 	}
