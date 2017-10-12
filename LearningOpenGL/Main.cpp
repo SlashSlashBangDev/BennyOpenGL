@@ -14,7 +14,7 @@
 
 int main(int argc, char** argv) {
 
-	Display display(800, 800, "Benny's  tutorial");
+	Display display(1920, 1080,  "Benny's  tutorial");
 	display.MakeCurrent();
 	glewInit();
 	Vertex vertices[] = {
@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
 	Mesh monkeyMesh("./res/monkey3.obj");
 	Shader shader("./res/basicShader");
 	Texture texture("brick.jpg");
-	Camera camera(glm::vec3(0, 0, -4), 70.0f, (float)WIDTH / (float)HEIGHT, 0.01f, 1000.0f);
+	Camera camera(glm::vec3(0, 0, -10), 70.0f, (float)WIDTH / (float)HEIGHT, 0.01f, 1000.0f);
 	Transform transform;
 
 	glEnable(GL_DEPTH_TEST);
